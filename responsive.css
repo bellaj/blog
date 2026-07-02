@@ -3,9 +3,15 @@
 	.site-description { display: none; }
 }
 
-@media only screen and (max-width: 820px) {
+@media only screen and (max-width: 1200px) {
+	body.has-home-sidebar .main-inner { max-width: 1024px; }
 	.content-with-sidebar { display: block; }
-	.sidebar { width: 100%; margin-top: 40px; }
+	body.has-home-sidebar .content-primary { flex: none; max-width: none; width: auto; }
+	.sidebar { width: 100%; margin-top: 40px; position: static; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; padding-top: 0; }
+	.sidebar .widget { margin-bottom: 0; }
+}
+
+@media only screen and (max-width: 820px) {
 	.stickywrap .stickywrap-inner { margin-top: 0; margin-left: 0; }
 	.stickywrap .stickywrap-heading { position: relative; top: 0!important; margin-bottom: 20px; height: 30px; }
 }

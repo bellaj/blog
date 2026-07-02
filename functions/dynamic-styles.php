@@ -109,6 +109,15 @@ if ( ! function_exists( 'colordive_dynamic_css' ) ) {
 					'."\n";
 				}
 			}
+			// homepage sidebar keeps post column at container width
+			if ( is_home() && is_active_sidebar( 'home-sidebar' ) ) {
+				$container = absint( get_theme_mod( 'container-width', '1024' ) );
+				$content   = max( 0, $container - 80 );
+				$styles   .= '
+body.has-home-sidebar .main-inner { max-width: '.esc_attr( $container + 320 ).'px; }
+body.has-home-sidebar .content-primary { flex: 0 0 '.esc_attr( $content ).'px; max-width: '.esc_attr( $content ).'px; width: '.esc_attr( $content ).'px; }
+				'."\n";
+			}
 			// content max-width
 			if ( get_theme_mod('content-width','680') != '680' ) {
 				$styles .= '

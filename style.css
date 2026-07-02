@@ -488,10 +488,13 @@ body.dark #theme-toggle-btn:before { border-color: #fff; top: 2px; left: 2px; }
 
 .main-inner { max-width: 1024px; margin: 0 auto; padding: 0 40px; min-height: 600px; }
 
+/* homepage sidebar: posts keep full width, sidebar sits beside */
+body.has-home-sidebar .main-inner { max-width: 1344px; }
 .content-with-sidebar { display: flex; gap: 40px; align-items: flex-start; }
-.content-primary { flex: 1; min-width: 0; }
-.sidebar { width: 280px; flex-shrink: 0; }
-.sidebar .widget { background: rgba(255,255,255,0.06); box-shadow: 0 12px 32px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 20px 20px rgba(255,255,255,0.06); border-radius: 20px; margin-bottom: 30px; }
+body.has-home-sidebar .content-primary { flex: 0 0 944px; max-width: 944px; width: 944px; }
+.sidebar { width: 280px; flex-shrink: 0; position: sticky; top: 72px; align-self: flex-start; padding-top: 8px; }
+.admin-bar .sidebar { top: 104px; }
+.sidebar .widget { background: rgba(255,255,255,0.06); box-shadow: 0 12px 32px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.1), inset 0 20px 20px rgba(255,255,255,0.06); border-radius: 20px; margin-bottom: 30px; padding: 20px 20px 0; }
 
 a.card-comments,
 a.card-comments:hover { font-weight: 800; }
@@ -906,7 +909,7 @@ body.single .small-heading { margin: 40px 0; font-size: 16px; }
 .widget select { background: #fff; border: 1px solid rgba(0,0,0,0.1); color: rgba(0,0,0,0.8); font-size: 15px; padding: 7px; width: 100%; max-width: 100%; }
 .widget label.screen-reader-text { display: none; }
 
-.sidebar .widget { padding: 20px 20px 0; }
+/* sidebar widget padding handled above */
 
 /*  widgets : icons
 /* ------------------------------------ */

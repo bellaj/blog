@@ -371,6 +371,7 @@ if ( ! function_exists( 'colordive_body_class' ) ) {
 		if ( get_theme_mod( 'dark-theme' ,'off' ) == 'on' ) { $classes[] = 'dark'; }
 		if ( get_theme_mod( 'invert-logo' ,'off' ) == 'on' ) { $classes[] = 'invert-dark-logo'; }
 		if (! ( is_user_logged_in() ) ) { $classes[] = 'logged-out'; }
+		if ( is_home() && is_active_sidebar( 'home-sidebar' ) ) { $classes[] = 'has-home-sidebar'; }
 		return $classes;
 	}
 	
