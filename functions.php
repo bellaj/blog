@@ -143,6 +143,15 @@ add_action( 'wp_enqueue_scripts', 'colordive_deregister', 100 );
 if ( ! function_exists( 'colordive_sidebars' ) ) {
 
 	function colordive_sidebars()	{
+		register_sidebar( array(
+			'name'          => esc_html__( 'Homepage Sidebar', 'colordive' ),
+			'id'            => 'home-sidebar',
+			'description'   => esc_html__( 'Widgets shown on the right side of the homepage.', 'colordive' ),
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h3>',
+			'after_title'   => '</h3>',
+		) );
 		if ( get_theme_mod('footer-widgets') >= '1' ) { register_sidebar(array( 'name' => esc_html__('Footer 1','colordive'),'id' => 'footer-1', 'description' => esc_html__("Widgetized footer","colordive"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>')); }
 		if ( get_theme_mod('footer-widgets') >= '2' ) { register_sidebar(array( 'name' => esc_html__('Footer 2','colordive'),'id' => 'footer-2', 'description' => esc_html__("Widgetized footer","colordive"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>')); }
 		if ( get_theme_mod('footer-widgets') >= '3' ) { register_sidebar(array( 'name' => esc_html__('Footer 3','colordive'),'id' => 'footer-3', 'description' => esc_html__("Widgetized footer","colordive"), 'before_widget' => '<div id="%1$s" class="widget %2$s">','after_widget' => '</div>','before_title' => '<h3>','after_title' => '</h3>')); }

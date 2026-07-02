@@ -1,5 +1,11 @@
 <?php get_header(); ?>
 
+<?php $has_home_sidebar = is_home() && is_active_sidebar( 'home-sidebar' ); ?>
+
+<?php if ( $has_home_sidebar ) : ?><div class="content-with-sidebar group"><?php endif; ?>
+
+<?php if ( $has_home_sidebar ) : ?><div class="content-primary"><?php endif; ?>
+
 <div class="stickywrap-container">
 	
 	<?php if ( have_posts() ) : ?>
@@ -28,5 +34,7 @@
 </div><!--/.stickywrap-container-->
 
 <?php get_template_part('inc/pagination'); ?>
+
+<?php if ( $has_home_sidebar ) : ?></div><?php get_sidebar(); ?></div><!--/.content-with-sidebar--><?php endif; ?>
 
 <?php get_footer(); ?>
